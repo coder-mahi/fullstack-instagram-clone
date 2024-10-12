@@ -2,10 +2,10 @@
 export function seedDatabase(firebase) {
   const users = [
     {
-      userId: "WQJ7sZkuXnOgNJZ91HRluatWztb2",
+      userId: "Safn0N8FpNRvUWiSsraRr1ZCcRs2",
       username: "mahesh",
       fullName: "Mahesh Shinde",
-      emailAddress: "mshinde1297@gmail.com",
+      emailAddress: "maheshshinde9100@gmail.com",
       following: ["2"],
       followers: ["2", "3", "4"],
       dateCreated: Date.now(),
@@ -16,7 +16,7 @@ export function seedDatabase(firebase) {
       fullName: "Tony Stark",
       emailAddress: "ironman@avengers.com",
       following: [],
-      followers: ["WQJ7sZkuXnOgNJZ91HRluatWztb2"],
+      followers: ["Safn0N8FpNRvUWiSsraRr1ZCcRs2"],
       dateCreated: Date.now(),
     },
     {
@@ -25,7 +25,7 @@ export function seedDatabase(firebase) {
       fullName: "Steve Rogers",
       emailAddress: "captainamerica@avengers.com",
       following: [],
-      followers: ["WQJ7sZkuXnOgNJZ91HRluatWztb2"],
+      followers: ["Safn0N8FpNRvUWiSsraRr1ZCcRs2"],
       dateCreated: Date.now(),
     },
     {
@@ -34,7 +34,7 @@ export function seedDatabase(firebase) {
       fullName: "Wanda Maximoff",
       emailAddress: "scarletwitch@avengers.com",
       following: [],
-      followers: ["WQJ7sZkuXnOgNJZ91HRluatWztb2"],
+      followers: ["Safn0N8FpNRvUWiSsraRr1ZCcRs2"],
       dateCreated: Date.now(),
     },
   ];
