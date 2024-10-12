@@ -1,9 +1,8 @@
+import FirebaseContext from "./context/firebase";
 function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
-}
+    console.log("context",FirebaseContext);
+    console.log(FirebaseContext);
+    <div>Hello</div>
+  }
 
 export default App;
