@@ -1,11 +1,12 @@
-// NOTE: replace 'CrPBfLzlASf8isba1yKpDmT7Hxs1' with your Firebase auth user id (can be taken from Firebase)
+// src/seed.js
+
 export function seedDatabase(firebase) {
   const users = [
     {
-      userId: "Safn0N8FpNRvUWiSsraRr1ZCcRs2",
+      userId: "9k5RYD63e3StdrykA092FlmUqsi1",  // Your Firebase Auth user ID
       username: "mahesh",
       fullName: "Mahesh Shinde",
-      emailAddress: "maheshshinde9100@gmail.com",
+      emailAddress: "mshinde1297@gmail.com",
       following: ["2"],
       followers: ["2", "3", "4"],
       dateCreated: Date.now(),
@@ -16,7 +17,7 @@ export function seedDatabase(firebase) {
       fullName: "Tony Stark",
       emailAddress: "ironman@avengers.com",
       following: [],
-      followers: ["Safn0N8FpNRvUWiSsraRr1ZCcRs2"],
+      followers: ["9k5RYD63e3StdrykA092FlmUqsi1"],
       dateCreated: Date.now(),
     },
     {
@@ -25,7 +26,7 @@ export function seedDatabase(firebase) {
       fullName: "Steve Rogers",
       emailAddress: "captainamerica@avengers.com",
       following: [],
-      followers: ["Safn0N8FpNRvUWiSsraRr1ZCcRs2"],
+      followers: ["9k5RYD63e3StdrykA092FlmUqsi1"],
       dateCreated: Date.now(),
     },
     {
@@ -34,24 +35,24 @@ export function seedDatabase(firebase) {
       fullName: "Wanda Maximoff",
       emailAddress: "scarletwitch@avengers.com",
       following: [],
-      followers: ["Safn0N8FpNRvUWiSsraRr1ZCcRs2"],
+      followers: ["9k5RYD63e3StdrykA092FlmUqsi1"],
       dateCreated: Date.now(),
     },
   ];
 
-  // eslint-disable-next-line prefer-const
+  // Adding users to Firestore
   for (let k = 0; k < users.length; k++) {
     firebase.firestore().collection("users").add(users[k]);
   }
 
-  // eslint-disable-next-line prefer-const
+  // Adding photos to Firestore
   for (let i = 1; i <= 5; ++i) {
     firebase
       .firestore()
       .collection("photos")
       .add({
         photoId: i,
-        userId: "2",
+        userId: "2",  // Assume Tony Stark uploads these photos
         imageSrc: `/images/users/mahesh/${i}.jpg`,
         caption: "Saint George and the Dragon",
         likes: [],
@@ -61,7 +62,7 @@ export function seedDatabase(firebase) {
             comment: "Love this place, looks like my animal farm!",
           },
           {
-            displayName: "tony",
+            displayName: "mahesh",
             comment: "Would you mind if I used this picture?",
           },
         ],
