@@ -1,9 +1,11 @@
 import React from 'react'
 
 const Login = () => {
-  return (
-    <div>LOGIN PAGE</div>
-  )
+    return (
+        <div className='flex justify-center items-center h-screen'>
+          Login Page!
+        </div>
+      )
 }
 
 export default Login
