@@ -1,7 +1,6 @@
 import React,{useContext, useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
-
 const Login = () => {
     const navigate = useNavigate();
     const  { firebase } = useContext(FirebaseContext);
@@ -17,8 +16,14 @@ const Login = () => {
         document.title = "Login - Instagram";
     },[]);
     return (
-        <div className='flex justify-center items-center h-screen'>
-          Login Page!
+        <div className='container flex mx-auto max-w-screen items-center h-screen'>
+          <div className='flex w-3/5'> 
+          <img src="/images/iphone-with-profile.jpg"
+          alt='iphone with instagram app'/>
+        </div>
+        <div className='flex flex-col w-2/5'>
+        Form will come here..!
+        </div>
         </div>
       )
 }
