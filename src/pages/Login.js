@@ -17,9 +17,16 @@ const Login = () => {
             await firebase.auth().signInWithEmailAndPassword(emailAddress,password);
             navigate(ROUTES.DASHBOARD);
         }catch(error){
+            // console.log('error code',error.code);
+            if(error.code=== 'auth/invalid-credential'){
+                setError('login credentials are invalid');
+            }else if(error.code === 'auth/invalid-email'){
+                setError('The email address is badly formatted.');
+            }else{
+                setError(error.message);
+            }
             setEmailAddress("");
             setPassword("");
-            setError(error.message);
         }
      };
 
@@ -38,9 +45,11 @@ const Login = () => {
                 </h1>
                 {error && <p className='text-xs text-red-primary'>{error}</p>}
            <form onSubmit={handleLogin} method='POST'>
-            <input aria-label="Enter your email address" type="text" placeholder="Email address" className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2" onChange={({target})=> setEmailAddress(target.value)}/>
+            <input aria-label="Enter your email address" type="text" placeholder="Email address" className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2" onChange={({target})=> setEmailAddress(target.value)}
+            value={emailAddress}/>
 
-            <input aria-label="Enter your password" type="text" placeholder="Password" className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2" onChange={({target})=> setPassword(target.value)}/>
+            <input aria-label="Enter your password" type="text" placeholder="Password" className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2" onChange={({target})=> setPassword(target.value)}
+            value={password}/>
             
             <button disabled={isInvalid} 
             type="submit" 
