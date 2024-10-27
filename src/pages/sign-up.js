@@ -17,20 +17,20 @@ const Signup = () => {
 
     const handleSignup = async (event) => {
         event.preventDefault();
-        setError('');  // Reset error state
-
+        setError('');
+    
         const usernameExists = await doesUsernameExist(username);
-        if (usernameExists.length === 0) {
+    
+        if (!usernameExists) {
             try {
                 const createdUserResult = await firebase.auth().createUserWithEmailAndPassword(emailAddress, password);
-
-                // Update displayName with username
+    
                 await createdUserResult.user.updateProfile({
                     displayName: username,
                 });
-
-                // Add user to Firestore
-                await firebase.firestore().collection('users').add({
+    
+                // Add new user document in Firestore
+                await firebase.firestore().collection('users').doc(createdUserResult.user.uid).set({
                     userId: createdUserResult.user.uid,
                     username: username.toLowerCase(),
                     fullName,
@@ -38,30 +38,22 @@ const Signup = () => {
                     following: [],
                     dateCreated: Date.now()
                 });
-
-                // Navigate to Dashboard after successful signup
+    
                 navigate(ROUTES.DASHBOARD);
             } catch (error) {
-                // Firebase Authentication error handling
-                console.error(error.code, error.message);
+                console.error(error);
                 if (error.code === 'auth/email-already-in-use') {
-                    setError('The email address is already in use by another account.');
+                    setError('Email is already in use.');
                 } else if (error.code === 'auth/invalid-email') {
-                    setError('The email address is badly formatted.');
-                } else if (error.code === 'auth/weak-password') {
-                    setError('The password is too weak.');
+                    setError('Invalid email address.');
                 } else {
-                    setError('Something went wrong. Please try again later.');
+                    setError('An error occurred. Please try again.');
                 }
             }
-            setUsername('');
-            setFullName('');
-            setEmailAddress('');
-            setPassword('');
         } else {
-            setError('Username already exists. Please try another.');
+            setError('Username already exists. Please choose another.');
         }
-    };
+    };    
 
     useEffect(() => {
         document.title = 'Sign Up - Instagram';

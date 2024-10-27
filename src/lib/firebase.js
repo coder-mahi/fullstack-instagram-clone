@@ -3,12 +3,12 @@ import Firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 const config = {
-    apiKey: process.env.FIREBASE_API_KEY,
-    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.FIREBASE_PROJECT_ID,
-    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.FIREBASE_APP_ID
+    apiKey: "AIzaSyCEjLHqLpW5Prv-5zhb33RUhz6Z1RwrhXc",
+    authDomain: "instagram-3a3d7.firebaseapp.com",
+    projectId: "instagram-3a3d7",
+    storageBucket: "instagram-3a3d7.appspot.com",
+    messagingSenderId: "132423561098",
+    appId: "1:132423561098:web:6e4ce7ed6d4f37c1d86273"
 };
 const firebase = Firebase.initializeApp(config);
 const { FieldValue } = Firebase.firestore;
