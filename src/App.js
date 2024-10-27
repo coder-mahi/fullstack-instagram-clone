@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import * as ROUTES from "./constants/routes";
-import Signup from './pages/sign-up';
+
 const Login = lazy(() => import('./pages/Login'));
+const Signup = lazy(() => import('./pages/sign-up'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 function App() {
     return (
@@ -14,9 +16,8 @@ function App() {
                             Hello world!
                         </h1>} />
                     <Route path={ROUTES.LOGIN} element={<Login />} />
-
                     <Route path={ROUTES.SIGN_UP} element={<Signup />} />
-
+                    <Route path={'*'} element={<NotFound />} />
                 </Routes>
             </Suspense>
         </Router>
