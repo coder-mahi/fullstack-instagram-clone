@@ -21,9 +21,9 @@
 // export default Dashboard;
 
 import React, { useEffect } from 'react';
-import Header from './Header';
-import Timeline from './Timeline';
-import Sidebar from './Sidebar';
+import Header from '../components/Header';
+import Timeline from '../components/Timeline';
+import Sidebar from '../components/sidebar';
 
 const Dashboard = () => {
   useEffect(() => {
