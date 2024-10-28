@@ -3,7 +3,7 @@
 export function seedDatabase(firebase) {
   const users = [
     {
-      userId: "9k5RYD63e3StdrykA092FlmUqsi1",  // Your Firebase Auth user ID
+      userId: "sXmseMe7o1f4mLyc6mVCqxLD9QJ2",  // Your Firebase Auth user ID
       username: "mahesh",
       fullName: "Mahesh Shinde",
       emailAddress: "mshinde1297@gmail.com",
@@ -17,7 +17,7 @@ export function seedDatabase(firebase) {
       fullName: "Tony Stark",
       emailAddress: "ironman@avengers.com",
       following: [],
-      followers: ["9k5RYD63e3StdrykA092FlmUqsi1"],
+      followers: ["sXmseMe7o1f4mLyc6mVCqxLD9QJ2"],
       dateCreated: Date.now(),
     },
     {
