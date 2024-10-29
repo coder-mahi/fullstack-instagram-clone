@@ -2,7 +2,7 @@ import React from 'react'
 
 const Timeline = () => {
   return (
-    <div>i am Timeline</div>
+    <div className='container col-span-2'>i am Timeline</div>
   )
 }
 
