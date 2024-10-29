@@ -24,12 +24,30 @@ export async function getSuggestedProfiles(userId,following){
 );
   return user;
 }
+////typed
+// export async function updateLoggedInUserFollowing(
+//   loggedInUserDocId,
+//   profileId, 
+//   isFollowingProfile 
+// ) {
+//   console.log("Updating following for doc:", loggedInUserDocId, "with profileId:", profileId);
+//   return firebase
+//     .firestore()
+//     .collection("users")
+//     .doc(loggedInUserDocId)
+//     .update({
+//       following: isFollowingProfile
+//         ? FieldValue.arrayRemove(profileId)
+//         : FieldValue.arrayUnion(profileId),
+//     });
+// }
 
-export async function updateLoggedInUserFollowing(
-  loggedInUserDocId, // currently logged in user document id (sameer profile)
-  profileId, // the user that sameer request to follow
-  isFollowingProfile // true/false (am i currently follwing this person?)
-) {
+//gpt working
+export async function updateLoggedInUserFollowing(loggedInUserDocId, profileId, isFollowingProfile) {
+  if (!loggedInUserDocId) {
+    console.error("No document ID for logged-in user. Cannot update following list.");
+    return;
+  }
   return firebase
     .firestore()
     .collection("users")
@@ -41,11 +59,13 @@ export async function updateLoggedInUserFollowing(
     });
 }
 
+
 export async function updateFollowedUserFollowers(
-  profileDocId, // currently logged in user document id (sameer profile)
-  loggedInUserDocId, // the user that sameer request to follow
-  isFollowingProfile // true/false (am i currently follwing this person?)
+  profileDocId, 
+  loggedInUserDocId, 
+  isFollowingProfile
 ) {
+  console.log("Updating followers for doc:", profileDocId, "with userId:", loggedInUserDocId);
   return firebase
     .firestore()
     .collection("users")
@@ -55,4 +75,5 @@ export async function updateFollowedUserFollowers(
         ? FieldValue.arrayRemove(loggedInUserDocId)
         : FieldValue.arrayUnion(loggedInUserDocId),
     });
+
 }
