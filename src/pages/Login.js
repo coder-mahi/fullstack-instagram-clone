@@ -34,9 +34,10 @@ const Login = () => {
         document.title = "Login - Instagram";
     }, []);
     return (
-        <div className='container flex mx-auto max-w-screen items-center h-screen'>
-            <div className='flex w-3/5'>
-                <img src="/images/iphone-with-profile.jpg"
+        <div className='container flex justify-center mx-auto max-w-screen items-center h-screen'>
+
+    <div className='flex w-2/5 justify-center'>
+    <img src="/images/iphone-with-profile.jpg"
                     alt='iphone with instagram app' />
             </div>
             <div className='flex flex-col w-2/5'>
@@ -48,7 +49,7 @@ const Login = () => {
             <input aria-label="Enter your email address" type="text" placeholder="Email address" className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2" onChange={({target})=> setEmailAddress(target.value)}
             value={emailAddress}/>
 
-            <input aria-label="Enter your password" type="text" placeholder="Password" className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2" onChange={({target})=> setPassword(target.value)}
+            <input aria-label="Enter your password" type="password" placeholder="Password" className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2" onChange={({target})=> setPassword(target.value)}
             value={password}/>
             
             <button disabled={isInvalid} 
