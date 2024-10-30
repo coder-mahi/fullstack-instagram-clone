@@ -11,7 +11,7 @@ const User = ({ username, fullName }) => {
       <Link to={`/p/${username}`} className="grid grid-cols-4 gap-4 mb-6 items-center">
         <div className="flex items-center justify-between col-span-1">
           <img 
-            src={`./images/avatars/${username}.jpg`} 
+            src={`/images/avatars/${username}.jpg`} 
             className="rounded-full w-16 flex mr-3" 
             alt={`${username}'s avatar`} 
           />

@@ -24,6 +24,33 @@ export async function getSuggestedProfiles(userId,following){
 );
   return user;
 }
+
+export async function getUserByUsername(username) {
+  const result = await firebase
+    .firestore()
+    .collection("users")
+    .where("username", "==", username.toLowerCase())
+    .get();
+  return result.docs.map((item) => ({
+    ...item.data(),
+    docId: item.id,
+  }));
+}
+
+export async function getUserPhotosByUserId(userId) {
+  const result = await firebase
+    .firestore()
+    .collection("photos")
+    .where("userId", "==", userId)
+    .get();
+  const photos = result.docs.map((photo) => ({
+    ...photo.data(),
+    docId: photo.id,
+  }));
+  return photos;
+}
+
+
 ////typed
 // export async function updateLoggedInUserFollowing(
 //   loggedInUserDocId,

@@ -17,7 +17,7 @@ async function handleFollowUser() {
   return !followed ?(
     <div className='flex flex-row items-center justify-between'>
       <div className='flex items-center justify-between'>
-        <img className='rounded-full w-8 flex mr-3' src={`./images/avatars/${username}.jpg`}
+        <img className='rounded-full w-8 flex mr-3' src={`/images/avatars/${username}.jpg`}
         alt={username} />
          <Link to={`/p/${username}`}>
         <p className='font-bold text-sm'>{username}</p>
