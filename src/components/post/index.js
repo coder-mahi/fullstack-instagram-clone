@@ -22,12 +22,12 @@ export default function Post({ content }) {
       />
        
       <Footer caption={content.caption} username={content.username} />
-      {/* <Comments
+      <Comments
         docId={content.docId}
         comments={content.comments}
         posted={content.dateCreated}
         commentInput={commentInput}
-      /> */}
+      />
     </div>
   );
 }
